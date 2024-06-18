@@ -1,0 +1,9 @@
+max_retry: 3
+retry_status_codes: [400, 401, 403, 429, 502, 503, 504]
+retry_backoff_factor: 0.5
+model_endpoint: "https://api-inference.huggingface.co/models"
+model_id: "gpt2"
+parameters:
+  max_new_tokens: 50
+  num_return_sequences: 1
+  temperature: 0.8
