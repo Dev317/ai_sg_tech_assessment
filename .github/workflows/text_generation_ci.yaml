@@ -1,0 +1,38 @@
+name: Text Generation CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'text_generation/**'
+      - '.github/workflows/text_generation_ci.yaml'
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: text_generation
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            text_generation/
+            .github/workflows
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          pip3 install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python3 -m unittest -v tests/test_*.py
