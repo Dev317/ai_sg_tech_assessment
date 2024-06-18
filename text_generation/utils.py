@@ -5,10 +5,9 @@ import yaml
 from dotenv import load_dotenv
 from typing import Dict, List
 
+
 def get_session(
-    max_retry: int,
-    retry_status_codes: List[int],
-    backoff_factor: float = 0.1
+    max_retry: int, retry_status_codes: List[int], backoff_factor: float = 0.1
 ) -> requests.Session:
     """
     This function creates a session object with retry mechanism.
@@ -20,11 +19,14 @@ def get_session(
         sess: A session object with retry mechanism.
     """
     sess = requests.Session()
-    retries = Retry(total=max_retry,
-                    backoff_factor=backoff_factor,
-                    status_forcelist=retry_status_codes)
-    sess.mount('http://', HTTPAdapter(max_retries=retries))
+    retries = Retry(
+        total=max_retry,
+        backoff_factor=backoff_factor,
+        status_forcelist=retry_status_codes,
+    )
+    sess.mount("http://", HTTPAdapter(max_retries=retries))
     return sess
+
 
 def get_config(config_path: str) -> Dict:
     """
@@ -46,6 +48,7 @@ def get_config(config_path: str) -> Dict:
 
     return config
 
+
 def get_hugging_face_auth_token() -> str:
     """
     This function reads the Hugging Face API token from the environment variable.
@@ -55,8 +58,11 @@ def get_hugging_face_auth_token() -> str:
     load_dotenv()
     token = os.getenv("HUGGING_FACE_API_KEY", None)
     if token is None:
-        raise ValueError("Hugging Face API token not found in the environment variable.")
+        raise ValueError(
+            "Hugging Face API token not found in the environment variable."
+        )
     return token
+
 
 def format_llm_response(generated_texts: List[str]) -> str:
     """
