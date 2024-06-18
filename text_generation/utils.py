@@ -57,3 +57,17 @@ def get_hugging_face_auth_token() -> str:
     if token is None:
         raise ValueError("Hugging Face API token not found in the environment variable.")
     return token
+
+def format_llm_response(generated_texts: List[str]) -> str:
+    """
+    This function formats the response from the API:
+        - Concatenate all the generated texts.
+        - Replace '\n\n' with empty space.
+    Args:
+        generated_texts: List of generated texts.
+    Returns:
+        llm_response: Formatted response from the API.
+    """
+    full_text = "".join(i["generated_text"] for i in generated_texts)
+    llm_response = full_text.replace("\n\n", " ")
+    return llm_response
