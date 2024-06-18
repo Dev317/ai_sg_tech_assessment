@@ -1,5 +1,9 @@
 ### Overview
 
+
+https://github.com/Dev317/ai_sg_tech_assessment/assets/70529335/a8b6a5c6-e20f-4d06-acee-f99576b0b7c8
+
+
 This is overall a simple program that does sentence auto completion by invoking Hugging Face Inference API using gpt2.
 It will take in a single user input and returns response that are pre-configured in the api call params. The program heavily depends on the `config.yaml` that acts as a contract on how to invoke the api endpoint (e.g what endpoint to call, which model to use, what params to put in). Additionally, the program also has a retry mechanism to ensure that users will always get a response or be notified of any errors!
 
