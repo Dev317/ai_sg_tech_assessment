@@ -1,9 +1,10 @@
-from utils import get_session, get_config
+from utils import get_session, get_config, get_hugging_face_auth_token
 from requests import Session
 from typing import Dict
 
 def call_api(session: Session,
              config: Dict,
+             auth_token: str,
              user_input: str) -> str:
     """
     This function invoke the API and returns the response
@@ -23,9 +24,12 @@ def main() -> None:
         retry_status_codes=config["retry_status_codes"],
         backoff_factor=config["retry_backoff_factor"]
     )
+    hugging_face_auth_token = get_hugging_face_auth_token()
+
     user_input = input("Input: ")
     llm_response = call_api(session=session,
                             config=config,
+                            auth_token=hugging_face_auth_token,
                             user_input=user_input)
     print(llm_response)
 

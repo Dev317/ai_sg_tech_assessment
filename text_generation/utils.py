@@ -2,6 +2,7 @@ import os
 import requests
 from requests.adapters import HTTPAdapter, Retry
 import yaml
+from dotenv import load_dotenv
 from typing import Dict, List
 
 def get_session(
@@ -44,3 +45,15 @@ def get_config(config_path: str) -> Dict:
             raise Exception(f"Error reading the config file: {exc}")
 
     return config
+
+def get_hugging_face_auth_token() -> str:
+    """
+    This function reads the Hugging Face API token from the environment variable.
+    Returns:
+        token: Hugging Face API token.
+    """
+    load_dotenv()
+    token = os.getenv("HUGGING_FACE_API_KEY", None)
+    if token is None:
+        raise ValueError("Hugging Face API token not found in the environment variable.")
+    return token
