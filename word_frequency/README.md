@@ -13,3 +13,15 @@ Overall time complexity: O(nlogk) where n is the number of words and k is the nu
 4. Use a max heap via `heapq` module to keep track of the 20 most frequent words
 5. Pop the heap until the 10th most frequent word is reached
 6. Print the words from 10th to 20th most frequent
+
+### How to run the program
+- Prerequisite: python3.8 and above
+- Ensure that `requests` library is present
+    ```
+        pip3 install requests
+    ```
+- How to run the program
+    ```
+        cd word_frequency
+        python3 main.py
+    ```
