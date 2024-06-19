@@ -38,6 +38,8 @@ def main():
     4. Use a max heap to keep track of the 20 most frequent words
     5. Pop the heap until the 10th most frequent word is reached
     6. Print the words from 10th to 20th most frequent
+
+    Overall time complexity: O(nlogk) where n is the number of words and k is the number of top words frequency to be tracked
     """
     url = "https://www.gutenberg.org/cache/epub/16317/pg16317.txt"
     text = download_text(url)

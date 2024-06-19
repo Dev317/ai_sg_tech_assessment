@@ -4,6 +4,7 @@ https://github.com/Dev317/ai_sg_tech_assessment/assets/70529335/6a6a72ea-feed-4e
 This is a simple program that prints out the top 10th to 20th words in a text file from a given link.
 The solution utilises the max heap as the core data structure to do the word fequency sorting.
 Most of the packages used are from the python standard library.
+Overall time complexity: O(nlogk) where n is the number of words and k is the number of top words frequency to be tracked.
 
 ### Program flow
 1. Download the text from the given URL. Store the text in memory since it is a relatively small size data.
