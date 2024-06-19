@@ -1,4 +1,5 @@
 ### Overview
+https://github.com/Dev317/ai_sg_tech_assessment/assets/70529335/6a6a72ea-feed-4eb2-8e81-b561d2fe4daf
 
 This is a simple program that prints out the top 10th to 20th words in a text file from a given link.
 The solution utilises the max heap as the core data structure to do the word fequency sorting.
